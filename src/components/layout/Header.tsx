@@ -6,7 +6,7 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="flex justify-between py-[32px] px-[32px]">
+    <div className="flex justify-between py-[32px]">
       <div>
         <p className="text-[20px] font-semibold text-[#1D4ED8]">
           London Internship Program
