@@ -30,7 +30,7 @@ const HeaderButtonGroup = (props: Props) => {
     <div className="flex">
       <div className="flex gap-x-2 border-r pr-2 mr-2">
         {buttonData.map((item, index) => (
-          <button className="p-[8px] bg-white rounded-lg">
+          <button className="p-[8px] border-[0.5px] border-[#ECECEC] bg-white rounded-lg">
             <img src={item.icon} alt="Header button option" />
           </button>
         ))}
