@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import './App.css'
+import Sidebar from "./components/layout/Sidebar";
+import MainContent from "./components/layout/MainContent";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <p className='p-5 bg-red-500'>hello word</p>
-    </div>
-  )
+    <main className="flex flex-row min-h-screen w-full max-h-screen">
+      <Sidebar />
+      <MainContent />
+    </main>
+  );
 }
 
-export default App
+export default App;
