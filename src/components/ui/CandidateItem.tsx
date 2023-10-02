@@ -1,5 +1,5 @@
 import video from "../../assets/mainBody/video.svg";
-import notebook from "../../assets/mainBody/Notebook.svg";
+import notebook from "../../assets/mainBody/notebookNew.svg";
 import { Candidate } from "../layout/CandidateSection";
 
 type Props = {
