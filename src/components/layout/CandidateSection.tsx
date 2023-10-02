@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CandidateItem from "../ui/CandidateItem";
 import { SearchContext } from "../../search.context";
-
-type Props = {};
 
 export type Candidate = {
   firstName: string;
@@ -93,7 +91,7 @@ const candidateList: Candidate[] = [
   },
 ];
 
-const CandidateSection = (props: Props) => {
+const CandidateSection = () => {
   const { state } = useContext(SearchContext);
   const [searchResults, setSearchResults] = useState<Candidate[]>([]);
 

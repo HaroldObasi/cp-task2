@@ -1,15 +1,12 @@
-import React from "react";
 import downArrow from "../../assets/mainBody/Caret_Down_MD.svg";
 import file from "../../assets/mainBody/File_Document.svg";
-
-type Props = {};
 
 type Options = {
   name: string;
   dropdown: boolean;
 };
 
-const FilterOptions = (props: Props) => {
+const FilterOptions = () => {
   const options: Options[] = [
     {
       name: "Personal Information",

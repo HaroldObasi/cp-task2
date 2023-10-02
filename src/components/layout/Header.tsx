@@ -1,10 +1,7 @@
-import React from "react";
 import Dropdown from "../ui/Dropdown";
 import HeaderButtonGroup from "./HeaderButtonGroup";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <div className="flex flex-col xl:flex-row justify-between py-[32px] sticky top-0 z-10 bg-[#F9FAFF]">
       <div className="pb-4 xl:pb-0">

@@ -1,4 +1,3 @@
-import React from "react";
 import video from "../../assets/mainBody/video.svg";
 import notebook from "../../assets/mainBody/Notebook.svg";
 import { Candidate } from "../layout/CandidateSection";

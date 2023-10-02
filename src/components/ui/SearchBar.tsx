@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { SearchContext } from "../../search.context";
 import searchIcon from "../../assets/mainBody/Search_Magnifying_Glass.svg";
 import warningIcon from "../../assets/mainBody/Circle_Warning.svg";
 
-type Props = {};
-
-const SearchBar = (props: Props) => {
+const SearchBar = () => {
   const { dispatch } = useContext(SearchContext);
 
   return (

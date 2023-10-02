@@ -1,4 +1,3 @@
-import React from "react";
 import mail from "../../assets/header/Mail.svg";
 import priceTag from "../../assets/header/priceTag.svg";
 import userCheck from "../../assets/header/User_Check.svg";
@@ -6,9 +5,7 @@ import userClose from "../../assets/header/User_Close.svg";
 import userVoice from "../../assets/header/User_Voice.svg";
 import expandMore from "../../assets/header/expand_more.svg";
 
-type Props = {};
-
-const HeaderButtonGroup = (props: Props) => {
+const HeaderButtonGroup = () => {
   const buttonData = [
     {
       icon: priceTag,
@@ -30,7 +27,10 @@ const HeaderButtonGroup = (props: Props) => {
     <div className="flex sm:flex-row sm:gap-y-0 flex-col gap-y-3 mt-4 xl:my-0">
       <div className="flex justify-around sm:justify-start gap-x-2 sm:border-r pr-2 mr-2">
         {buttonData.map((item, index) => (
-          <button className="p-[8px] border-[0.5px] border-[#ECECEC] bg-white rounded-lg">
+          <button
+            key={index}
+            className="p-[8px] border-[0.5px] border-[#ECECEC] bg-white rounded-lg"
+          >
             <img src={item.icon} alt="Header button option" />
           </button>
         ))}
