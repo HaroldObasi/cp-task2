@@ -27,19 +27,21 @@ const HeaderButtonGroup = (props: Props) => {
     },
   ];
   return (
-    <div className="flex">
-      <div className="flex gap-x-2 border-r pr-2 mr-2">
+    <div className="flex sm:flex-row sm:gap-y-0 flex-col gap-y-3 mt-4 xl:my-0">
+      <div className="flex gap-x-2 sm:border-r pr-2 mr-2">
         {buttonData.map((item, index) => (
           <button className="p-[8px] border-[0.5px] border-[#ECECEC] bg-white rounded-lg">
             <img src={item.icon} alt="Header button option" />
           </button>
         ))}
       </div>
-      <button className="bg-[#1D5ECD] rounded-[8px] text-white flex items-center justify-between">
-        <p className="px-[16px] border-r h-full flex items-center">
+      <button className="bg-[#1D5ECD] h-12 rounded-[8px] text-white flex items-center justify-between">
+        <p className="px-[16px]  h-full flex items-center">
           Move to Video Interview I
         </p>
-        <img className="px-[10px]" src={expandMore} alt="" />
+        <div className="border-l px-[10px] flex items-center h-full">
+          <img className=" " src={expandMore} alt="" />
+        </div>
       </button>
     </div>
   );

@@ -17,7 +17,7 @@ const SearchBar = (props: Props) => {
         type="text"
         name=""
         placeholder="Search by name, edu, exp or #tag"
-        className="w-full pl-[50px] text-xs focus:ring-0 focus:outline-none py-4 rounded-lg"
+        className="w-full pl-[50px] text-xs md:text-sm focus:ring-0 focus:outline-none py-4 rounded-lg"
         id=""
       />
     </div>

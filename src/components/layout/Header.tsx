@@ -6,16 +6,16 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="flex justify-between py-[32px]">
-      <div>
-        <p className="text-[20px] font-semibold text-[#1D4ED8]">
+    <div className="flex flex-col xl:flex-row justify-between py-[32px] sticky top-0 z-10 bg-[#F9FAFF]">
+      <div className="pb-4 xl:pb-0">
+        <p className="text-[20px] font-semibold  text-[#1D4ED8]">
           London Internship Program
         </p>
         <p className="font-light text-[12px]">London</p>
       </div>
-      <HeaderButtonGroup />
 
       <Dropdown />
+      <HeaderButtonGroup />
     </div>
   );
 };
