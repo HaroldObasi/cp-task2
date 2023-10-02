@@ -51,7 +51,7 @@ function Dropdown({}: Props) {
         <img src={arrowDown} alt="dropdown arrow" />
       </button>
       {isOpen && (
-        <div className="w-full max-h-[100px] absolute">
+        <div className="w-full sm:w-auto overflow-y-auto max-h-[500px] absolute">
           {dropdownData.map((item, index, arr) => (
             <button
               className={`${
