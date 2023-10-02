@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SearchContext } from "../../search.context";
 import searchIcon from "../../assets/mainBody/Search_Magnifying_Glass.svg";
 import warningIcon from "../../assets/mainBody/Circle_Warning.svg";
 
 type Props = {};
 
 const SearchBar = (props: Props) => {
+  const { dispatch } = useContext(SearchContext);
+
   return (
     <div className="w-full relative">
       <div className="absolute flex items-center pl-4 h-full">
@@ -16,6 +19,9 @@ const SearchBar = (props: Props) => {
       <input
         type="text"
         name=""
+        onChange={(e) => {
+          dispatch({ type: "CHANGE_SEARCH", searchKey: e.target.value });
+        }}
         placeholder="Search by name, edu, exp or #tag"
         className="w-full pl-[50px] text-xs md:text-sm focus:ring-0 focus:outline-none py-4 rounded-lg"
         id=""

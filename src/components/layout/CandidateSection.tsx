@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CandidateItem from "../ui/CandidateItem";
+import { SearchContext } from "../../search.context";
 
 type Props = {};
 
@@ -24,82 +25,96 @@ const candidateList: Candidate[] = [
     chipTags: ["New York", "Marketing", "London"],
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "John",
+    lastName: "Doe",
+    location: "New York, USA",
+    education: "Master - Harvard University (2022 - 2024)",
+    hashTags: ["top_candidate", "coding"],
+    chipTags: ["San Francisco", "Engineering", "Seattle"],
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Emily",
+    lastName: "Johnson",
+    location: "London, UK",
+    education: "Ph.D. - Oxford University (2021 - 2025)",
+    hashTags: ["researcher", "data_analysis"],
+    chipTags: ["Berlin", "Science", "Paris"],
   },
+
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Michael",
+    lastName: "Smith",
+    location: "Los Angeles, USA",
+    education: "Bachelor - UCLA (2022 - 2022)",
+    hashTags: ["new_grad", "finance"],
+    chipTags: ["Chicago", "Business", "Boston"],
     programs: 3,
     videos: 4,
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Sophia",
+    lastName: "Williams",
+    location: "Toronto, Canada",
+    education: "Master - University of Toronto (2023 - 2025)",
+    hashTags: ["tech_enthusiast", "AI"],
+    chipTags: ["Vancouver", "Computer Science", "Montreal"],
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Liam",
+    lastName: "Anderson",
+    location: "Chicago, USA",
+    education: "Bachelor - University of Chicago (2022 - 2022)",
+    hashTags: ["new_grad", "marketing"],
+    chipTags: ["Los Angeles", "Advertising", "San Francisco"],
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Olivia",
+    lastName: "Martinez",
+    location: "Madrid, Spain",
+    education: "Master - Universidad Complutense de Madrid (2023 - 2025)",
+    hashTags: ["student", "languages"],
+    chipTags: ["Barcelona", "Education", "Valencia"],
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Noah",
+    lastName: "Garcia",
+    location: "Sydney, Australia",
+    education: "Ph.D. - University of Sydney (2021 - 2025)",
+    hashTags: ["researcher", "biology"],
+    chipTags: ["Melbourne", "Science", "Brisbane"],
   },
   {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
-  },
-  {
-    firstName: "Aaliyah",
-    lastName: "Sanderson",
-    location: "Riyadh, Saudi Arabia",
-    education: "Bachelor - Cambridge University (2023 - 2023)",
-    hashTags: ["top_candidate", "top_candidate"],
-    chipTags: ["New York", "Marketing", "London"],
+    firstName: "Emma",
+    lastName: "Davis",
+    location: "Mumbai, India",
+    education: "Bachelor - Mumbai University (2022 - 2022)",
+    hashTags: ["fresh_grad", "programming"],
+    chipTags: ["Delhi", "Technology", "Bangalore"],
   },
 ];
 
 const CandidateSection = (props: Props) => {
+  const { state } = useContext(SearchContext);
+  const [searchResults, setSearchResults] = useState<Candidate[]>([]);
+
+  const handleFilter = () => {
+    const filteredResults = candidateList.filter((item) => {
+      const searchText = state.searchKey.toLowerCase();
+
+      return (
+        item.firstName.toLowerCase().includes(searchText) ||
+        item.lastName.toLowerCase().includes(searchText) ||
+        item.education.toLowerCase().includes(searchText) ||
+        item.hashTags.some((tag) => tag.toLowerCase().includes(searchText))
+      );
+    });
+
+    setSearchResults(filteredResults);
+  };
+
+  useEffect(() => {
+    handleFilter();
+  }, [state]);
   return (
     <div className="flex-1 bg-white px-4 py-2 rounded-2xl">
       <div className="flex flex-col sm:flex-row justify-between border-b">
@@ -127,7 +142,7 @@ const CandidateSection = (props: Props) => {
         </div>
       </div>
 
-      {candidateList.map((item, index, arr) => (
+      {searchResults.map((item, index, arr) => (
         <CandidateItem data={item} index={index} />
       ))}
     </div>
